@@ -1,4 +1,4 @@
-package com.dev.user.controllers;
+package com.dev.inspec.controllers;
 
 import java.util.List;
 
@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dev.user.entities.User;
-import com.dev.user.repositories.UserRepository;
+import com.dev.inspec.entities.User;
+import com.dev.inspec.repositories.InspecRepository;
 
 @RestController
 @RequestMapping(value = "/users")
-public class UserController {
+public class InspecController {
 
 	@Autowired
-	private UserRepository repository;
+	private InspecRepository repository;
 	
 	@GetMapping
 	public List<User> findAll() {

@@ -1,4 +1,4 @@
-package com.dev.userinspec;
+package com.dev.inspec;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

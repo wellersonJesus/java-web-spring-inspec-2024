@@ -1,6 +1,6 @@
 -- Inserir tipos de cadastro
-INSERT INTO tipo_cadastro (engenheiro) VALUES ('engenheiro');
-INSERT INTO tipo_cadastro (tecnico) VALUES ('tecnico');
+INSERT INTO tipo_cadastro (name) VALUES ('engenheiro');
+INSERT INTO tipo_cadastro (name) VALUES ('tecnico');
 
 -- Inserir dados na tabela cadastro
 INSERT INTO cadastro (tipo_cadastro_id, contato, cpfoucnpj, endereco) VALUES (1, 'Maria', '000034120000100', 'Rua A');

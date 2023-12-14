@@ -13,33 +13,19 @@ public class TipoCadastro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String engenheiro;
-	private String tecnico;
-	
-	public TipoCadastro() {
-	}
-
+	private String name;
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public String getEngenheiro() {
-		return engenheiro;
+	public String getName() {
+		return name;
 	}
-
-	public void setEngenheiro(String engenheiro) {
-		this.engenheiro = engenheiro;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public String getTecnico() {
-		return tecnico;
-	}
-
-	public void setTecnico(String tecnico) {
-		this.tecnico = tecnico;
-	}
+	
+	
 }

@@ -1,7 +1,12 @@
-INSERT INTO tb_department(name) VALUES ('Gestão');
-INSERT INTO tb_department(name) VALUES ('Informática');
+-- Inserir tipos de cadastro
+INSERT INTO tipo_cadastro (engenheiro) VALUES ('engenheiro');
+INSERT INTO tipo_cadastro (tecnico) VALUES ('tecnico');
 
-INSERT INTO tb_user(department_id, name, email) VALUES (1, 'Maria', 'maria@gmail.com');
-INSERT INTO tb_user(department_id, name, email) VALUES (1, 'Bob', 'bob@gmail.com');
-INSERT INTO tb_user(department_id, name, email) VALUES (2, 'Alex', 'alex@gmail.com');
-INSERT INTO tb_user(department_id, name, email) VALUES (2, 'Ana', 'ana@gmail.com');
+-- Inserir dados na tabela cadastro
+INSERT INTO cadastro (tipo_cadastro_id, contato, cpfoucnpj, endereco) VALUES (1, 'Maria', '000034120000100', 'Rua A');
+INSERT INTO cadastro (tipo_cadastro_id, contato, cpfoucnpj, endereco) VALUES (1, 'Antonio', '526894120000100', 'Rua B');
+INSERT INTO cadastro (tipo_cadastro_id, contato, cpfoucnpj, endereco) VALUES (2, 'Gleiso', '04522255510', 'Rua C');
+INSERT INTO cadastro (tipo_cadastro_id, contato, cpfoucnpj, endereco) VALUES (2, 'Carlos', '12558955525', 'Rua D');
+INSERT INTO cadastro (tipo_cadastro_id, contato, cpfoucnpj, endereco) VALUES (1, 'Bruno', '568589120000100', 'Rua E');
+
+

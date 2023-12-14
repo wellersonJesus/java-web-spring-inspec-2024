@@ -7,15 +7,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_department")
-public class Department {
+@Table(name = "tipo_cadastro")
+public class TipoCadastro {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
+	private String engenheiro;
+	private String tecnico;
 	
-	public Department() {
+	public TipoCadastro() {
 	}
 
 	public Long getId() {
@@ -26,11 +27,19 @@ public class Department {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getEngenheiro() {
+		return engenheiro;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setEngenheiro(String engenheiro) {
+		this.engenheiro = engenheiro;
+	}
+
+	public String getTecnico() {
+		return tecnico;
+	}
+
+	public void setTecnico(String tecnico) {
+		this.tecnico = tecnico;
 	}
 }

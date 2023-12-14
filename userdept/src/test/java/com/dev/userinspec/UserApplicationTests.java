@@ -1,10 +1,10 @@
-package com.devsuperior.userdept;
+package com.dev.userinspec;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UserdeptApplicationTests {
+class UserApplicationTests {
 
 	@Test
 	void contextLoads() {

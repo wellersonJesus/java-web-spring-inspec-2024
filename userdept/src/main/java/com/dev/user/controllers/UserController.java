@@ -1,4 +1,4 @@
-package com.devsuperior.userdept.controllers;
+package com.dev.user.controllers;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devsuperior.userdept.entities.User;
-import com.devsuperior.userdept.repositories.UserRepository;
+import com.dev.user.entities.User;
+import com.dev.user.repositories.UserRepository;
 
 @RestController
 @RequestMapping(value = "/users")

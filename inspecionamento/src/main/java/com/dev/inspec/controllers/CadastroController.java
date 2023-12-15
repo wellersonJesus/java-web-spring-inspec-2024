@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dev.inspec.entities.Cadastro;
-import com.dev.inspec.repositories.InspecRepository;
+import com.dev.inspec.repositories.CadastroRepository;
 
 @RestController
 @RequestMapping(value = "/cadastros")
-public class InspecController {
+public class CadastroController {
 
 	@Autowired
-	private InspecRepository repository;
+	private CadastroRepository repository;
 	
 	@GetMapping
 	public List<Cadastro> findAll() {

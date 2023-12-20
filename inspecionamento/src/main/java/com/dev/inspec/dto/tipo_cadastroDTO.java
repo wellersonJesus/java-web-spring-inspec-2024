@@ -1,11 +1,12 @@
 package com.dev.inspec.dto;
 
-public class TipoCadastroDTO {
-
+public class tipo_cadastroDTO {
 	private Long id;
 	private String name;
 
-	public TipoCadastroDTO() {
+	public tipo_cadastroDTO(Long id, String name) {
+		this.id = id;
+		this.name = name;
 	}
 
 	public Long getId() {
@@ -23,4 +24,5 @@ public class TipoCadastroDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 }

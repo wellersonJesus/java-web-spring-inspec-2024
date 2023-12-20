@@ -1,14 +1,17 @@
 package com.dev.inspec.dto;
 
-public class CadastroDTO {
+public class ClienteDTO {
 	private Long id;
 	private String contato;
 	private tipo_cadastroDTO tipoCadastro;
 
-	public CadastroDTO(Long id, String contato, tipo_cadastroDTO tipoCadastro) {
+	public ClienteDTO(Long id, String contato, tipo_cadastroDTO tipoClienteDTO) {
 		this.id = id;
-		this.contato = contato;
-		this.tipoCadastro = tipoCadastro;
+		this.setContato(contato);
+		this.tipoCadastro = tipoClienteDTO;
+	}
+
+	public ClienteDTO(Long id2, String cliente, tipo_clienteDTO tipoClienteDTO) {
 	}
 
 	public Long getId() {
@@ -19,14 +22,6 @@ public class CadastroDTO {
 		this.id = id;
 	}
 
-	public String getContato() {
-		return contato;
-	}
-
-	public void setContato(String contato) {
-		this.contato = contato;
-	}
-
 	public tipo_cadastroDTO getTipoCadastro() {
 		return tipoCadastro;
 	}
@@ -35,4 +30,11 @@ public class CadastroDTO {
 		this.tipoCadastro = tipoCadastro;
 	}
 
+	public String getContato() {
+		return contato;
+	}
+
+	public void setContato(String contato) {
+		this.contato = contato;
+	}
 }

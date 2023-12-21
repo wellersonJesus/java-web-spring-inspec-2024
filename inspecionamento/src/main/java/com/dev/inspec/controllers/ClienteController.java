@@ -87,7 +87,7 @@ public class ClienteController {
 		tipo_cadastroDTO tipoClienteDTO = null;
 
 		if (cliente.getTipoCliente() != null) {
-			tipoClienteDTO = new tipo_cadastroDTO(cliente.getTipoCliente().getId(), cliente.getTipoCliente().getNome());
+			tipoClienteDTO = new tipo_cadastroDTO(cliente.getTipoCliente().getId(), cliente.getTipoCliente().getName());
 		}
 
 		return new ClienteDTO(cliente.getId(), cliente.getNome(), tipoClienteDTO);

@@ -49,7 +49,7 @@ public class TipoClienteController {
 		TipoCliente existingTipoCliente = repository.findById(id).orElse(null);
 
 		if (existingTipoCliente != null) {
-			existingTipoCliente.setNome(tipoClienteAtualizado.getNome());
+			existingTipoCliente.setName(tipoClienteAtualizado.getName());
 			return repository.save(existingTipoCliente);
 		} else {
 			return null;

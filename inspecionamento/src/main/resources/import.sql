@@ -1,6 +1,6 @@
 -- Inserir tipos de cadastro
-INSERT INTO tipo_cadastro (name) VALUES ('engenheiro');
-INSERT INTO tipo_cadastro (name) VALUES ('tecnico');
+INSERT INTO tipoCadastro (name) VALUES ('Engenheiro');
+INSERT INTO tipoCadastro (name) VALUES ('Tecnico');
 
 -- Inserir dados na tabela cadastro
 INSERT INTO cadastro (tipo_cadastro_id, contato, cpfoucnpj, endereco) VALUES (1, 'Maria', '000034120000100', 'Rua A');
@@ -10,8 +10,8 @@ INSERT INTO cadastro (tipo_cadastro_id, contato, cpfoucnpj, endereco) VALUES (2,
 INSERT INTO cadastro (tipo_cadastro_id, contato, cpfoucnpj, endereco) VALUES (1, 'Bruno', '568589120000100', 'Rua E');
 
 -- Inserir dados na tabela cliente
-INSERT INTO tipo_cliente (pessoa_fisica, pessoa_juridica) VALUES ('Engenheiro', null);
-INSERT INTO tipo_cliente (pessoa_fisica, pessoa_juridica) VALUES (null, 'Técnico');
+INSERT INTO tipoCliente (name) VALUES ('Pessoa fisica');
+INSERT INTO tipoCliente (name) VALUES ('Pessoa jurídica');
 
 -- Inserir dados na tabela cliente
 INSERT INTO cliente (nome, email, tipo_cliente_id) VALUES ('Maria', 'maria@example.com', 1);

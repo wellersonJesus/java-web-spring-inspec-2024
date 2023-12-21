@@ -7,15 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tipo_cliente")
+@Table(name = "tipoCliente")
 public class TipoCliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	private String pessoaFisica;
-	private String pessoaJuridica;
+	private String name;
 
 	public Long getId() {
 		return id;
@@ -25,27 +23,11 @@ public class TipoCliente {
 		this.id = id;
 	}
 
-	public String getPessoaFisica() {
-		return pessoaFisica;
+	public String getName() {
+		return name;
 	}
 
-	public void setPessoaFisica(String pessoaFisica) {
-		this.pessoaFisica = pessoaFisica;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public String getPessoaJuridica() {
-		return pessoaJuridica;
-	}
-
-	public void setPessoaJuridica(String pessoaJuridica) {
-		this.pessoaJuridica = pessoaJuridica;
-	}
-
-	public String getNome() {
-		return null;
-	}
-
-	public void setNome(String nome) {
-	}
-
 }

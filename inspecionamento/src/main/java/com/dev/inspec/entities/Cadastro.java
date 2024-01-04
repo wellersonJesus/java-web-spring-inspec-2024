@@ -9,19 +9,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "cliente")
+@Table(name = "cadastro")
 public class Cadastro {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String contato;
-	private String cpf_ou_cnpj;
+	private String cpf_cnpj;
 	private String endereco;
 	
 	@ManyToOne
 	@JoinColumn(name = "tipoCadastro_id")
-	private TipoCliente tipoCadastro;
+	private TipoCadastro tipoCadastro;
+	
+	public Cadastro() {
+	}
 
 	public Long getId() {
 		return id;
@@ -31,20 +33,12 @@ public class Cadastro {
 		this.id = id;
 	}
 
-	public String getContato() {
-		return contato;
+	public String getCpf_cnpj() {
+		return cpf_cnpj;
 	}
 
-	public void setContato(String contato) {
-		this.contato = contato;
-	}
-
-	public String getCpf_ou_cnpj() {
-		return cpf_ou_cnpj;
-	}
-
-	public void setCpf_ou_cnpj(String cpf_ou_cnpj) {
-		this.cpf_ou_cnpj = cpf_ou_cnpj;
+	public void setCpf_cnpj(String cpf_cnpj) {
+		this.cpf_cnpj = cpf_cnpj;
 	}
 
 	public String getEndereco() {
@@ -54,12 +48,19 @@ public class Cadastro {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-
-	public TipoCliente getTipoCadastro() {
+	
+	public TipoCadastro getTipoCadastro() {
 		return tipoCadastro;
 	}
 
-	public void setTipoCadastro(TipoCliente tipoCadastro) {
+	public void setTipoCadastro(TipoCadastro tipoCadastro) {
 		this.tipoCadastro = tipoCadastro;
+	}
+
+	public Object getContato() {
+		return null;
+	}
+
+	public void setContato(Object contato) {
 	}
 }

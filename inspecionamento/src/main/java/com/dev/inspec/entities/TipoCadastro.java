@@ -13,7 +13,7 @@ public class TipoCadastro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
+	private String contato;
 	
 	public TipoCadastro() {
 	}
@@ -26,11 +26,11 @@ public class TipoCadastro {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getContato() {
+		return contato;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setContato(String contato) {
+		this.contato = contato;
 	}
 }

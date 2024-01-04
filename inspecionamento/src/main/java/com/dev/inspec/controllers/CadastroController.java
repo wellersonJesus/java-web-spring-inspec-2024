@@ -12,65 +12,44 @@ import com.dev.inspec.entities.Cadastro;
 import com.dev.inspec.repositories.CadastroRepository;
 
 @RestController
-@RequestMapping("/cadastro")
+@RequestMapping(value = "/cadastro")
 public class CadastroController {
 
     @Autowired
     private CadastroRepository repository;
 
     @GetMapping
-    public ResponseEntity<List<Cadastro>> findAll() {
-        List<Cadastro> cadastros = repository.findAll();
-        return ResponseEntity.ok(cadastros);
+    public List<Cadastro> findAll() {
+        return repository.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<Cadastro> findById(@PathVariable Long id) {
-        Optional<Cadastro> cadastroOptional = repository.findById(id);
-        return cadastroOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        return repository.findById(id)
+                .map(cadastro -> ResponseEntity.ok().body(cadastro))
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<?> insert(@RequestBody Cadastro cadastro) {
-        try {
-            validateCadastro(cadastro);
-            Cadastro savedCadastro = repository.save(cadastro);
-            return ResponseEntity.status(HttpStatus.CREATED).body(savedCadastro);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Erro ao inserir Cadastro: " + e.getMessage());
-        }
+    public Cadastro insert(@RequestBody Cadastro cadastro) {
+        return repository.save(cadastro);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Cadastro cadastroAtualizado) {
-        try {
-            validateCadastro(cadastroAtualizado);
-            Optional<Cadastro> existingCadastroOptional = repository.findById(id);
-
-            if (existingCadastroOptional.isPresent()) {
-                Cadastro existingCadastro = existingCadastroOptional.get();
-                existingCadastro.setContato(cadastroAtualizado.getContato());
-                existingCadastro.setCpf_ou_cnpj(cadastroAtualizado.getCpf_ou_cnpj());
-                existingCadastro.setEndereco(cadastroAtualizado.getEndereco());
-                existingCadastro.setTipoCadastro(cadastroAtualizado.getTipoCadastro());
-
-                return ResponseEntity.ok().body(repository.save(existingCadastro));
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Erro ao atualizar Cadastro: " + e.getMessage());
-        }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Cadastro> update(@PathVariable Long id, @RequestBody Cadastro cadastroAtualizado) {
+        return repository.findById(id)
+                .map(existingCadastro -> {
+                    existingCadastro.setContato(cadastroAtualizado.getContato());
+                    existingCadastro.setCpf_cnpj(cadastroAtualizado.getCpf_cnpj());
+                    existingCadastro.setEndereco(cadastroAtualizado.getEndereco());
+                    existingCadastro.setTipoCadastro(cadastroAtualizado.getTipoCadastro());
+                    return ResponseEntity.ok().body(repository.save(existingCadastro));
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id) {
         try {
             Optional<Cadastro> cadastroOptional = repository.findById(id);
 
@@ -85,12 +64,5 @@ public class CadastroController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Erro ao deletar Cadastro com ID " + id + ": " + e.getMessage());
         }
-    }
-
-    private void validateCadastro(Cadastro cadastro) {
-        if (cadastro.getContato() == null || cadastro.getCpf_ou_cnpj() == null || cadastro.getEndereco() == null) {
-            throw new IllegalArgumentException("Campos obrigatórios não podem ser nulos.");
-        }
-
     }
 }

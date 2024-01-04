@@ -1,14 +1,14 @@
-//Tipo_cadastro
-INSERT INTO tipo_cadastro(name) VALUES ('ENGENHEIRO');
-INSERT INTO tipo_cadastro(name) VALUES ('ANALISTA');
+//TipoCadastro
+INSERT INTO tipo_cadastro(contato) VALUES ('Engenheiro');
+INSERT INTO tipo_cadastro(contato) VALUES ('Tecnico');
 
 //Cadastro
-INSERT INTO cadastro(tipo_cadastro_id, contato, cpf_ou_cnpj, endereço) VALUES (1, 'Maria', '122.456.489-10', 'rua A');
-INSERT INTO cadastro(tipo_cadastro_id, contato, cpf_ou_cnpj, endereço) VALUES (1, 'Bob', '000.155.00001.10', 'Av 30');
-INSERT INTO cadastro(tipo_cadastro_id, contato, cpf_ou_cnpj, endereço) VALUES (2, 'Alex', '359.456.489-10', 'Alamenda dias 10');
-INSERT INTO cadastro(tipo_cadastro_id, contato, cpf_ou_cnpj, endereço) VALUES (2, 'Ana', '1589.596.569-20', 'rua belmiro 59');
+INSERT INTO cadastro(tipo_cadastro_id, cpf_cnpj, endereco) VALUES (2, '057.895.879-10', 'rua 10 156');
+INSERT INTO cadastro(tipo_cadastro_id, cpf_cnpj, endereco) VALUES (1, '254.895.897.0001-66', 'av aboboras 25');
+INSERT INTO cadastro(tipo_cadastro_id, cpf_cnpj, endereco) VALUES (1, '032.458.587-25', 'alameda dias 10');
+INSERT INTO cadastro(tipo_cadastro_id, cpf_cnpj, endereco) VALUES (2, '595.568.254.0001-98', 'av bom sucesso');
 
-//Tipo_cliente
+//TipoCliente
 INSERT INTO tipo_cliente(name) VALUES ('Pessoa fisica');
 INSERT INTO tipo_cliente(name) VALUES ('Pessoa jurídica');
 

@@ -1,5 +1,7 @@
 package com.dev.inspec.entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,15 +10,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tipo_cadastro")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TipoCadastro {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String contato;
-	
-	public TipoCadastro() {
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String contato;
+
+    public TipoCadastro() {
+    }
 
 	public Long getId() {
 		return id;

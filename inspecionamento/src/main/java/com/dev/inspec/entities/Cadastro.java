@@ -1,29 +1,26 @@
 package com.dev.inspec.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "cadastro")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Cadastro {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String cpf_cnpj;
-	private String endereco;
-	
-	@ManyToOne
-	@JoinColumn(name = "tipoCadastro_id")
-	private TipoCadastro tipoCadastro;
-	
-	public Cadastro() {
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String cpf_cnpj;
+    private String endereco;
+
+    @ManyToOne
+    @JoinColumn(name = "tipo_cadastro_id")
+    private TipoCadastro tipoCadastro;
+
+    private String contato;
 
 	public Long getId() {
 		return id;
@@ -48,7 +45,7 @@ public class Cadastro {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	
+
 	public TipoCadastro getTipoCadastro() {
 		return tipoCadastro;
 	}
@@ -57,10 +54,11 @@ public class Cadastro {
 		this.tipoCadastro = tipoCadastro;
 	}
 
-	public Object getContato() {
-		return null;
+	public String getContato() {
+		return contato;
 	}
 
-	public void setContato(Object contato) {
+	public void setContato(String contato) {
+		this.contato = contato;
 	}
 }

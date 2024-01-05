@@ -12,15 +12,13 @@ public class Cadastro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private String nome;
     private String cpf_cnpj;
     private String endereco;
 
     @ManyToOne
     @JoinColumn(name = "tipo_cadastro_id")
     private TipoCadastro tipoCadastro;
-
-    private String contato;
 
 	public Long getId() {
 		return id;
@@ -30,6 +28,14 @@ public class Cadastro {
 		this.id = id;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
 	public String getCpf_cnpj() {
 		return cpf_cnpj;
 	}
@@ -52,13 +58,5 @@ public class Cadastro {
 
 	public void setTipoCadastro(TipoCadastro tipoCadastro) {
 		this.tipoCadastro = tipoCadastro;
-	}
-
-	public String getContato() {
-		return contato;
-	}
-
-	public void setContato(String contato) {
-		this.contato = contato;
 	}
 }

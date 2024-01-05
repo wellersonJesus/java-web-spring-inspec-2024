@@ -39,7 +39,7 @@ public class CadastroController {
     public ResponseEntity<Cadastro> update(@PathVariable Long id, @RequestBody Cadastro cadastroAtualizado) {
         return repository.findById(id)
                 .map(existingCadastro -> {
-                    existingCadastro.setContato(cadastroAtualizado.getContato());
+                    existingCadastro.setNome(cadastroAtualizado.getNome());
                     existingCadastro.setCpf_cnpj(cadastroAtualizado.getCpf_cnpj());
                     existingCadastro.setEndereco(cadastroAtualizado.getEndereco());
                     existingCadastro.setTipoCadastro(cadastroAtualizado.getTipoCadastro());
@@ -56,7 +56,7 @@ public class CadastroController {
             if (cadastroOptional.isPresent()) {
                 Cadastro cadastro = cadastroOptional.get();
                 repository.deleteById(id);
-                return ResponseEntity.ok("Cadastro com ID " + id + " (" + cadastro.getContato() + ") foi deletado com sucesso.");
+                return ResponseEntity.ok("Cadastro com ID " + id + " (" + cadastro.getNome() + ") foi deletado com sucesso.");
             } else {
                 return ResponseEntity.notFound().build();
             }

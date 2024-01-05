@@ -13,7 +13,7 @@ INSERT INTO tipo_cliente(tipo_cliente) VALUES ('Pessoa fisica');
 INSERT INTO tipo_cliente(tipo_cliente) VALUES ('Pessoa jurídica');
 
 --Cliente
-INSERT INTO cliente(tipo_cliente_id, name, email) VALUES (1, 'Maria', 'maria@gmail.com');
-INSERT INTO cliente(tipo_cliente_id, name, email) VALUES (1, 'Bob', 'bob@gmail.com');
-INSERT INTO cliente(tipo_cliente_id, name, email) VALUES (2, 'Alex', 'alex@gmail.com');
-INSERT INTO cliente(tipo_cliente_id, name, email) VALUES (2, 'Ana', 'ana@gmail.com');
+INSERT INTO cliente(tipo_cliente_id, nome, email) VALUES (1, 'Maria', 'maria@gmail.com');
+INSERT INTO cliente(tipo_cliente_id, nome, email) VALUES (1, 'Bob', 'bob@gmail.com');
+INSERT INTO cliente(tipo_cliente_id, nome, email) VALUES (2, 'Alex', 'alex@gmail.com');
+INSERT INTO cliente(tipo_cliente_id, nome, email) VALUES (2, 'Ana', 'ana@gmail.com');

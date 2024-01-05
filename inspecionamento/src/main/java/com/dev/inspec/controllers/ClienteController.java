@@ -55,7 +55,7 @@ public class ClienteController {
             if (clienteOptional.isPresent()) {
                 Cliente cliente = clienteOptional.get();
                 repository.deleteById(id);
-                return ResponseEntity.ok("Cliente com ID " + id + " (" + cliente.getName() + ") foi deletado com sucesso.");
+                return ResponseEntity.ok("Cliente com ID " + id + " (" + cliente.getNome() + ") foi deletado com sucesso.");
             } else {
                 return ResponseEntity.notFound().build();
             }

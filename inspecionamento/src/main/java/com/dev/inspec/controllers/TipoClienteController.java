@@ -39,7 +39,7 @@ public class TipoClienteController {
     public ResponseEntity<TipoCliente> update(@PathVariable Long id, @RequestBody TipoCliente tipoClienteAtualizado) {
         return repository.findById(id)
                 .map(existingTipoCliente -> {
-                    existingTipoCliente.setName(tipoClienteAtualizado.getName());
+                    existingTipoCliente.setTipoCliente(tipoClienteAtualizado.getTipoCliente());
                     return ResponseEntity.ok().body(repository.save(existingTipoCliente));
                 })
                 .orElse(ResponseEntity.notFound().build());
@@ -53,7 +53,7 @@ public class TipoClienteController {
             if (tipoClienteOptional.isPresent()) {
                 TipoCliente tipoCliente = tipoClienteOptional.get();
                 repository.deleteById(id);
-                return ResponseEntity.ok("TipoCliente com ID " + id + " (" + tipoCliente.getName() + ") foi deletado com sucesso.");
+                return ResponseEntity.ok("TipoCliente com ID " + id + " (" + tipoCliente.getTipoCliente() + ") foi deletado com sucesso.");
             } else {
                 return ResponseEntity.notFound().build();
             }

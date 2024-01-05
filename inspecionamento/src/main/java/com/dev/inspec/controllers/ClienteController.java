@@ -39,7 +39,7 @@ public class ClienteController {
     public ResponseEntity<Cliente> update(@PathVariable Long id, @RequestBody Cliente clienteAtualizado) {
         return repository.findById(id)
                 .map(existingCliente -> {
-                    existingCliente.setName(clienteAtualizado.getName());
+                    existingCliente.setTipoCliente(clienteAtualizado.getTipoCliente());
                     existingCliente.setEmail(clienteAtualizado.getEmail());
                     existingCliente.setTipoCliente(clienteAtualizado.getTipoCliente());
                     return ResponseEntity.ok().body(repository.save(existingCliente));

@@ -39,7 +39,7 @@ public class TipoCadastroController {
     public ResponseEntity<TipoCadastro> update(@PathVariable Long id, @RequestBody TipoCadastro tipoCadastroAtualizado) {
         return repository.findById(id)
                 .map(existingTipoCadastro -> {
-                    existingTipoCadastro.setContato(tipoCadastroAtualizado.getContato());
+                    existingTipoCadastro.setTipoCadastro(tipoCadastroAtualizado.getTipoCadastro());
                     return ResponseEntity.ok().body(repository.save(existingTipoCadastro));
                 })
                 .orElse(ResponseEntity.notFound().build());
@@ -53,7 +53,7 @@ public class TipoCadastroController {
             if (tipoCadastroOptional.isPresent()) {
                 TipoCadastro tipoCadastro = tipoCadastroOptional.get();
                 repository.deleteById(id);
-                return ResponseEntity.ok("TipoCadastro com ID " + id + " (" + tipoCadastro.getContato() + ") foi deletado com sucesso.");
+                return ResponseEntity.ok("TipoCadastro com ID " + id + " (" + tipoCadastro.getTipoCadastro() + ") foi deletado com sucesso.");
             } else {
                 return ResponseEntity.notFound().build();
             }

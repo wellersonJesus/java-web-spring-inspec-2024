@@ -24,3 +24,26 @@ INSERT INTO inspecao(extraordinaria, inicial, periodica_interna_externa, cliente
 INSERT INTO inspecao(extraordinaria, inicial, periodica_interna_externa, cliente_id) VALUES ('Jazz Coffe', '2023-03-30', 'Periodica Corrosivo', 1);
 INSERT INTO inspecao(extraordinaria, inicial, periodica_interna_externa, cliente_id) VALUES ('Neintro', '2023-09-17', 'Periodica Estrutural', 4);
 INSERT INTO inspecao(extraordinaria, inicial, periodica_interna_externa, cliente_id) VALUES ('Angary III', '2023-03-05', 'Periodica Passiva', 1);
+
+--Equipamento
+INSERT INTO equipamento(caldera, vaso_de_pressao, tubulacao, tanque_metalico, inspecao_id) VALUES ('Caldera Austriaca', 'vaso pressurizado', 'ANQ-10', 'tub-VCR', '2');
+INSERT INTO equipamento(caldera, vaso_de_pressao, tubulacao, tanque_metalico, inspecao_id) VALUES ('Inova', 'Vaso Strep', 'ANQ-210', 'tub-DF', '3');
+INSERT INTO equipamento(caldera, vaso_de_pressao, tubulacao, tanque_metalico, inspecao_id) VALUES ('Espa Kake', 'Press Cad', 'ANQ-0010', 'tub-HGT', '1');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -37,6 +37,14 @@ INSERT INTO caldera(ano_fabricao, capacidade_producao_vapor_saturado, categoria,
 --VasoPressoa
 INSERT INTO vaso_pressao(categoria_id, codigo_projeto, codigo_vaso, comprimento_costado, diametro_interno, fabricante, pressao_interna_projeto, pressao_trabalho, pressao_teste_hidrostatico, proprietario_vaso, serie, temperatura_interna_projeto, tipo_vaso, vaso_id_tag, volume, equipamento_id) VALUES ('1', '003', '09876', '100 mm', '30 cm', 'Angar', '1000 M2', '1200 K', '3567 K', 'Propriedade estável', '000001', '120 Cal', 'ADF-45', '1234-GD', '200 M','2');
 
+--Categoria
+INSERT INTO categoria(categoria, vaso_pressao_id) VALUES ('A', '1');
+INSERT INTO categoria(categoria, vaso_pressao_id) VALUES ('D', '1');
+INSERT INTO categoria(categoria, vaso_pressao_id) VALUES ('C', '1');
+INSERT INTO categoria(categoria, vaso_pressao_id) VALUES ('A', '1');
+INSERT INTO categoria(categoria, vaso_pressao_id) VALUES ('B', '1');
+INSERT INTO categoria(categoria, vaso_pressao_id) VALUES ('A', '1');
+
 
 
 

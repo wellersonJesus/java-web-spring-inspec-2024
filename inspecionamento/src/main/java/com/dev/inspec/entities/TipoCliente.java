@@ -7,13 +7,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tipoCliente")
+@Table(name = "tipo_cliente")
 public class TipoCliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
+	private String tipoCliente;
+	
+	public TipoCliente() {
+	}
 
 	public Long getId() {
 		return id;
@@ -23,11 +26,11 @@ public class TipoCliente {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getTipoCliente() {
+		return tipoCliente;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTipoCliente(String tipoCliente) {
+		this.tipoCliente = tipoCliente;
 	}
 }

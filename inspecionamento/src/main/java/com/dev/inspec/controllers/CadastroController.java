@@ -1,80 +1,68 @@
 package com.dev.inspec.controllers;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.dev.inspec.dto.CadastroDTO;
-import com.dev.inspec.dto.tipo_cadastroDTO;
 import com.dev.inspec.entities.Cadastro;
 import com.dev.inspec.repositories.CadastroRepository;
 
 @RestController
-@RequestMapping(value = "/cadastros")
+@RequestMapping(value = "/cadastro")
 public class CadastroController {
 
     @Autowired
     private CadastroRepository repository;
 
     @GetMapping
-    public List<CadastroDTO> findAll() {
-        List<Cadastro> cadastros = repository.findAll();
-        return cadastros.stream().map(this::toDTO).collect(Collectors.toList());
+    public List<Cadastro> findAll() {
+        return repository.findAll();
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<CadastroDTO> findById(@PathVariable Long id) {
-        Cadastro cadastro = repository.findById(id).orElse(null);
-
-        if (cadastro != null) {
-            return ResponseEntity.ok(toDTO(cadastro));
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<Cadastro> findById(@PathVariable Long id) {
+        return repository.findById(id)
+                .map(cadastro -> ResponseEntity.ok().body(cadastro))
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<CadastroDTO> insert(@RequestBody Cadastro cadastro) {
-        Cadastro savedCadastro = repository.save(cadastro);
-        return ResponseEntity.status(HttpStatus.CREATED).body(toDTO(savedCadastro));
+    public Cadastro insert(@RequestBody Cadastro cadastro) {
+        return repository.save(cadastro);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<CadastroDTO> update(@PathVariable Long id, @RequestBody Cadastro cadastroAtualizado) {
-        Cadastro existingCadastro = repository.findById(id).orElse(null);
-
-        if (existingCadastro != null) {
-            existingCadastro.setContato(cadastroAtualizado.getContato());
-            existingCadastro.setCpfoucnpj(cadastroAtualizado.getCpfoucnpj());
-            existingCadastro.setEndereco(cadastroAtualizado.getEndereco());
-
-            Cadastro updatedCadastro = repository.save(existingCadastro);
-
-            return ResponseEntity.ok(toDTO(updatedCadastro));
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<Cadastro> update(@PathVariable Long id, @RequestBody Cadastro cadastroAtualizado) {
+        return repository.findById(id)
+                .map(existingCadastro -> {
+                    existingCadastro.setNome(cadastroAtualizado.getNome());
+                    existingCadastro.setCpf_cnpj(cadastroAtualizado.getCpf_cnpj());
+                    existingCadastro.setEndereco(cadastroAtualizado.getEndereco());
+                    existingCadastro.setTipoCadastro(cadastroAtualizado.getTipoCadastro());
+                    return ResponseEntity.ok().body(repository.save(existingCadastro));
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id) {
         try {
-            repository.deleteById(id);
-            return ResponseEntity.ok("Cadastro com ID " + id + " foi excluído com sucesso.");
+            Optional<Cadastro> cadastroOptional = repository.findById(id);
+
+            if (cadastroOptional.isPresent()) {
+                Cadastro cadastro = cadastroOptional.get();
+                repository.deleteById(id);
+                return ResponseEntity.ok("Cadastro com ID " + id + " (" + cadastro.getNome() + ") foi deletado com sucesso.");
+            } else {
+                return ResponseEntity.notFound().build();
+            }
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Erro ao excluir cadastro com ID " + id + ": " + e.getMessage());
+                    .body("Erro ao deletar Cadastro com ID " + id + ": " + e.getMessage());
         }
-    }
-
-    private CadastroDTO toDTO(Cadastro cadastro) {
-        tipo_cadastroDTO tipoCadastroDTO = cadastro.getTipoCadastro() != null ?
-                new tipo_cadastroDTO(cadastro.getTipoCadastro().getId(), cadastro.getTipoCadastro().getName()) : null;
-
-        return new CadastroDTO(cadastro.getId(), cadastro.getContato(), tipoCadastroDTO);
     }
 }

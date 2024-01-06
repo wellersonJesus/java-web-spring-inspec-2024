@@ -15,13 +15,15 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
 	private String nome;
 	private String email;
-
+	
 	@ManyToOne
-	@JoinColumn(name = "tipo_cliente_id")
+	@JoinColumn(name = "tipoCliente_id")
 	private TipoCliente tipoCliente;
+	
+	public Cliente() {
+	}
 
 	public Long getId() {
 		return id;
@@ -54,5 +56,4 @@ public class Cliente {
 	public void setTipoCliente(TipoCliente tipoCliente) {
 		this.tipoCliente = tipoCliente;
 	}
-
 }

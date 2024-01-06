@@ -30,7 +30,9 @@ INSERT INTO equipamento(caldera, vaso_de_pressao, tubulacao, tanque_metalico, in
 INSERT INTO equipamento(caldera, vaso_de_pressao, tubulacao, tanque_metalico, inspecao_id) VALUES ('Inova', 'Vaso Strep', 'ANQ-210', 'tub-DF', '3');
 INSERT INTO equipamento(caldera, vaso_de_pressao, tubulacao, tanque_metalico, inspecao_id) VALUES ('Espa Kake', 'Press Cad', 'ANQ-0010', 'tub-HGT', '1');
 
-
+--Caldera
+INSERT INTO caldera(ano_fabricao, capacidade_producao_vapor_saturado, categoria, codigo_projeto_ano_edicao, combustivel, marca, modelo, numero_ordem, pressao_teste_hidrostatico_fabricante, pressao_efetiva_operacao, sup_aquecimento, equipamento_id) VALUES ('2023-02-09', 'Alta', 'B', 'AGH55', 'Alcool', 'DGTRH', 'A3', '847464744783', 'Alta controlada', 'Efetivado', 'Ativado', '1');
+INSERT INTO caldera(ano_fabricao, capacidade_producao_vapor_saturado, categoria, codigo_projeto_ano_edicao, combustivel, marca, modelo, numero_ordem, pressao_teste_hidrostatico_fabricante, pressao_efetiva_operacao, sup_aquecimento, equipamento_id) VALUES ('2023-03-11', 'Baixa', 'A', 'DFR5', 'Etanol', 'FFFGG', 'C4', '568952274455', 'Baixa existente', 'Atuante', 'Desativado', '2');
 
 
 

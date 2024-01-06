@@ -65,7 +65,7 @@ public class EquipamentoController {
             }
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Erro ao deletar Inspecao com ID " + id + ": " + e.getMessage());
+                    .body("Erro ao deletar Equipamento com ID " + id + ": " + e.getMessage());
         }
     }
 }

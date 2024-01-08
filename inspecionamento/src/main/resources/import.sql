@@ -45,6 +45,9 @@ INSERT INTO categoria(categoria, vaso_pressao_id) VALUES ('A', '1');
 INSERT INTO categoria(categoria, vaso_pressao_id) VALUES ('B', '1');
 INSERT INTO categoria(categoria, vaso_pressao_id) VALUES ('A', '1');
 
+--Tubulacao
+INSERT INTO tubulacao(dados_localizacao_identificacao, dados_soldagem, documentacao_projeto, documentacao_regulatoria, historico_manutencao, informacoes_operacao, inspecao_visual, monitoramento_corrosao, registros_juntas, registros_teste_pressao, registros_certificacao_pessoal, testes_nao_destrutivos, testes_hidrostaticos, equipamento_id) VALUES ('Parte inferio tanque', 'corrosivo alto', 'doc 1A projeto', 'doc regulamentado', 'dados impressos corrozivos', 'tanque em risco', 'teste alocado', 'estado monitorado', 'registrado adequado', 'teste do registro finalizado', 'registro certificado', 'teste conduzido', 'teste finalizado', '1');
+
 
 
 

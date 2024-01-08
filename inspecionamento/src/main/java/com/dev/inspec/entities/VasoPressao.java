@@ -35,6 +35,10 @@ public class VasoPressao {
 	@JoinColumn(name = "equipamento_id")
 	private Equipamento equipamento;
 
+	@ManyToOne
+	@JoinColumn(name = "vaso_pressao_id")
+	private VasoPressao vaso_pressao;
+	
 	public Long getId() {
 		return id;
 	}

@@ -34,7 +34,7 @@ INSERT INTO equipamento(caldera, vaso_de_pressao, tubulacao, tanque_metalico, in
 INSERT INTO caldera(ano_fabricao, capacidade_producao_vapor_saturado, categoria, codigo_projeto_ano_edicao, combustivel, marca, modelo, numero_ordem, pressao_teste_hidrostatico_fabricante, pressao_efetiva_operacao, sup_aquecimento, equipamento_id) VALUES ('2023-02-09', 'Alta', 'B', 'AGH55', 'Alcool', 'DGTRH', 'A3', '847464744783', 'Alta controlada', 'Efetivado', 'Ativado', '1');
 INSERT INTO caldera(ano_fabricao, capacidade_producao_vapor_saturado, categoria, codigo_projeto_ano_edicao, combustivel, marca, modelo, numero_ordem, pressao_teste_hidrostatico_fabricante, pressao_efetiva_operacao, sup_aquecimento, equipamento_id) VALUES ('2023-03-11', 'Baixa', 'A', 'DFR5', 'Etanol', 'FFFGG', 'C4', '568952274455', 'Baixa existente', 'Atuante', 'Desativado', '2');
 
---VasoPressoa
+--VasoPressao
 INSERT INTO vaso_pressao(categoria_id, codigo_projeto, codigo_vaso, comprimento_costado, diametro_interno, fabricante, pressao_interna_projeto, pressao_trabalho, pressao_teste_hidrostatico, proprietario_vaso, serie, temperatura_interna_projeto, tipo_vaso, vaso_id_tag, volume, equipamento_id) VALUES ('1', '003', '09876', '100 mm', '30 cm', 'Angar', '1000 M2', '1200 K', '3567 K', 'Propriedade estável', '000001', '120 Cal', 'ADF-45', '1234-GD', '200 M','2');
 
 --Categoria
@@ -46,7 +46,7 @@ INSERT INTO categoria(categoria, vaso_pressao_id) VALUES ('B', '1');
 INSERT INTO categoria(categoria, vaso_pressao_id) VALUES ('A', '1');
 
 --Tubulacao
-INSERT INTO tubulacao(dados_localizacao_identificacao, dados_soldagem, documentacao_projeto, documentacao_regulatoria, historico_manutencao, informacoes_operacao, inspecao_visual, monitoramento_corrosao, registros_juntas, registros_teste_pressao, registros_certificacao_pessoal, testes_nao_destrutivos, testes_hidrostaticos, equipamento_id) VALUES ('Parte inferio tanque', 'corrosivo alto', 'doc 1A projeto', 'doc regulamentado', 'dados impressos corrozivos', 'tanque em risco', 'teste alocado', 'estado monitorado', 'registrado adequado', 'teste do registro finalizado', 'registro certificado', 'teste conduzido', 'teste finalizado', '1');
+INSERT INTO tubulacao (localizacao_identificacao, dados_soldagem, documentacao_projeto, documentacao_regulatoria, historico_manutencao, informacoes_operacao, inspecao_visual, monitoramento_corrosao, registros_juntas, registros_teste_pressao, registros_certificacao_pessoal, testes_nao_destrutivos, testes_hidrostaticos, equipamento_id) VALUES ('Parte inferior tanque', 'corrosivo alto', 'doc 1A projeto', 'doc regulamentado', 'dados impressos corrozivos', 'tanque em risco', 'teste alocado', 'estado monitorado', 'registrado adequado', 'teste do registro finalizado', 'registro certificado', 'teste conduzido', 'teste finalizado', '1');
 
 
 

@@ -1,5 +1,6 @@
 package com.dev.inspec.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,8 +16,10 @@ public class Tubulacao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@SuppressWarnings("unused")
-	private String dados_localizacao_identificacao;
+	
+	@Column(name = "localizacao_identificacao")
+	private String localizacao_identificacao;
+
 	private String dados_soldagem;
 	private String documentacao_projeto;
 	private String documentacao_regulatoria;
@@ -42,12 +45,12 @@ public class Tubulacao {
 		this.id = id;
 	}
 
-	public static String getDados_localizacao_identificacao() {
-		return null;
+	public String getLocalizacao_identificacao() {
+		return localizacao_identificacao;
 	}
 
-	public void setDados_localizacao_identificacao(String dados_localizacao_identificacao) {
-		this.dados_localizacao_identificacao = dados_localizacao_identificacao;
+	public void setLocalizacao_identificacao(String localizacao_identificacao) {
+		this.localizacao_identificacao = localizacao_identificacao;
 	}
 
 	public String getDados_soldagem() {

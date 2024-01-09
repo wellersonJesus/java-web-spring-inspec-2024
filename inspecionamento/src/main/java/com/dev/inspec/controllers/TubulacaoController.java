@@ -22,67 +22,66 @@ import com.dev.inspec.repositories.TubulacaoRepository;
 @RequestMapping(value = "/tubulacao")
 public class TubulacaoController {
 
-    @Autowired
-    private TubulacaoRepository repository;
+	@Autowired
+	private TubulacaoRepository repository;
 
-    @GetMapping
-    public List<Tubulacao> findAll() {
-        return repository.findAll();
-    }
+	@GetMapping
+	public List<Tubulacao> findAll() {
+		return repository.findAll();
+	}
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<Tubulacao> findById(@PathVariable Long id) {
-        Optional<Tubulacao> tubulacaoOptional = repository.findById(id);
-        return tubulacaoOptional.map(tubulacao -> ResponseEntity.ok().body(tubulacao))
-                .orElse(ResponseEntity.notFound().build());
-    }
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<Tubulacao> findById(@PathVariable Long id) {
+		Optional<Tubulacao> tubulacaoOptional = repository.findById(id);
+		return tubulacaoOptional.map(tubulacao -> ResponseEntity.ok().body(tubulacao))
+				.orElse(ResponseEntity.notFound().build());
+	}
 
-    @PostMapping
-    public Tubulacao insert(@RequestBody Tubulacao tubulacao) {
-        return repository.save(tubulacao);
-    }
+	@PostMapping
+	public Tubulacao insert(@RequestBody Tubulacao tubulacao) {
+		return repository.save(tubulacao);
+	}
 
-    @PutMapping(value = "/{id}")
-    public ResponseEntity<Tubulacao> update(@PathVariable Long id, @RequestBody Tubulacao tubulacaoAtualizado) {
-        Optional<Tubulacao> existingTubulacaoOptional = repository.findById(id);
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<Tubulacao> update(@PathVariable Long id, @RequestBody Tubulacao tubulacaoAtualizado) {
+		Optional<Tubulacao> existingTubulacaoOptional = repository.findById(id);
 
-        return existingTubulacaoOptional.map(existingTubulacao -> {
-            existingTubulacao.setDados_localizacao_identificacao(Tubulacao.getDados_localizacao_identificacao());
-            existingTubulacao.setDados_soldagem(tubulacaoAtualizado.getDados_soldagem());
-            existingTubulacao.setDocumentacao_projeto(tubulacaoAtualizado.getDocumentacao_projeto());
-            existingTubulacao.setDocumentacao_regulatoria(tubulacaoAtualizado.getDocumentacao_regulatoria());
-            existingTubulacao.setHistorico_manutencao(tubulacaoAtualizado.getHistorico_manutencao());
-            existingTubulacao.setInformacoes_operacao(tubulacaoAtualizado.getInformacoes_operacao());
-            existingTubulacao.setInspecao_visual(tubulacaoAtualizado.getInspecao_visual());
-            existingTubulacao.setMonitoramento_corrosao(tubulacaoAtualizado.getMonitoramento_corrosao());
-            existingTubulacao.setRegistros_juntas(tubulacaoAtualizado.getRegistros_juntas());
-            existingTubulacao.setRegistros_teste_pressao(tubulacaoAtualizado.getRegistros_teste_pressao());
-            existingTubulacao.setRegistros_certificacao_pessoal(tubulacaoAtualizado.getRegistros_certificacao_pessoal());
-            existingTubulacao.setTestes_nao_destrutivos(tubulacaoAtualizado.getTestes_nao_destrutivos());
-            existingTubulacao.setTestes_hidrostaticos(tubulacaoAtualizado.getTestes_hidrostaticos());
-            existingTubulacao.setEquipamento(tubulacaoAtualizado.getEquipamento());
-            Tubulacao updatedTubulacao = repository.save(existingTubulacao);
-            return ResponseEntity.ok().body(updatedTubulacao);
-        
-        }).orElse(ResponseEntity.notFound().build());
-    }
+		return existingTubulacaoOptional.map(existingTubulacao -> {
+			existingTubulacao.setLocalizacao_identificacao(tubulacaoAtualizado.getLocalizacao_identificacao());
+			existingTubulacao.setDados_soldagem(tubulacaoAtualizado.getDados_soldagem());
+			existingTubulacao.setDocumentacao_projeto(tubulacaoAtualizado.getDocumentacao_projeto());
+			existingTubulacao.setDocumentacao_regulatoria(tubulacaoAtualizado.getDocumentacao_regulatoria());
+			existingTubulacao.setHistorico_manutencao(tubulacaoAtualizado.getHistorico_manutencao());
+			existingTubulacao.setInformacoes_operacao(tubulacaoAtualizado.getInformacoes_operacao());
+			existingTubulacao.setInspecao_visual(tubulacaoAtualizado.getInspecao_visual());
+			existingTubulacao.setMonitoramento_corrosao(tubulacaoAtualizado.getMonitoramento_corrosao());
+			existingTubulacao.setRegistros_juntas(tubulacaoAtualizado.getRegistros_juntas());
+			existingTubulacao.setRegistros_teste_pressao(tubulacaoAtualizado.getRegistros_teste_pressao());
+			existingTubulacao.setRegistros_certificacao_pessoal(tubulacaoAtualizado.getRegistros_certificacao_pessoal());
+			existingTubulacao.setTestes_nao_destrutivos(tubulacaoAtualizado.getTestes_nao_destrutivos());
+			existingTubulacao.setTestes_hidrostaticos(tubulacaoAtualizado.getTestes_hidrostaticos());
+			existingTubulacao.setEquipamento(tubulacaoAtualizado.getEquipamento());
+			Tubulacao updatedTubulacao = repository.save(existingTubulacao);
+			return ResponseEntity.ok().body(updatedTubulacao);
 
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<String> delete(@PathVariable Long id) {
-        try {
-            Optional<Tubulacao> tubulacaoOptional = repository.findById(id);
+		}).orElse(ResponseEntity.notFound().build());
+	}
 
-            if (tubulacaoOptional.isPresent()) {
-				@SuppressWarnings("unused")
-				Tubulacao tubulacao = tubulacaoOptional.get();
-                repository.deleteById(id);
-                return ResponseEntity.ok("Tubulacao com ID " + id + " (" + Tubulacao.getDados_localizacao_identificacao() + ") foi deletado com sucesso.");
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Erro ao deletar Caldera com ID " + id + ": " + e.getMessage());
-        }
-    }
-}
+	  @DeleteMapping(value = "/{id}")
+	    public ResponseEntity<String> delete(@PathVariable Long id) {
+	        try {
+	            Optional<Tubulacao> tubulacaoOptional = repository.findById(id);
+
+	            if (tubulacaoOptional.isPresent()) {
+	            	Tubulacao tubulacao = tubulacaoOptional.get();
+	                repository.deleteById(id);
+	                return ResponseEntity.ok("Tubulacao com ID " + id + " (" + tubulacao.getLocalizacao_identificacao() + ") foi deletado com sucesso.");
+	            } else {
+	                return ResponseEntity.notFound().build();
+	            }
+	        } catch (Exception e) {
+	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+	                    .body("Erro ao deletar Tubulacao com ID " + id + ": " + e.getMessage());
+	        }
+	    }
+	}

@@ -5,8 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class DbService {
+import org.springframework.stereotype.Service;
 
+
+@Service
+public class DbService {
+	
 	private static final String URL = "jdbc:mysql://your_database_url";
 	private static final String USER = "your_username";
 	private static final String PASSWORD = "your_password";

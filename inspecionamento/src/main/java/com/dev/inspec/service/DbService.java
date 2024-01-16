@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class DbService {
 	
-	private static final String URL = "jdbc:mysql://your_database_url";
-	private static final String USER = "your_username";
-	private static final String PASSWORD = "your_password";
+	private static final String URL = "jdbc:mariadb://localhost:3306/inspect_db";
+	private static final String USER = "root";
+	private static final String PASSWORD = "admin";
 
 	public void instantiateTestDatabase() {
 		try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {

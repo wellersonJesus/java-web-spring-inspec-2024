@@ -11,6 +11,6 @@ FROM openjdk:17-jdk-slim
 
 EXPOSE 8080
 
-COPY --from=build /target/user-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /home/well/Documentos/projetos/java-web-spring-inspec-2024/inspecionamento/target/user-0.0.1-SNAPSHOT.jar to 
 
 ENTRYPOINT [ "java", "-jar", "app.jar" ]

@@ -1,16 +1,10 @@
-ls# Estágio de compilação
+# Estágio de compilação
 FROM maven:3.8.4-openjdk-17 AS build
 
 WORKDIR /app
 
 # Copie apenas o arquivo POM inicial para aproveitar o cache ao baixar as dependências
 COPY pom.xml .
-
-# Baixe as dependências antes de copiar todo o código-fonte
-RUN mvn dependency:go-offline
-
-# Copie todo o código-fonte
-COPY src ./src
 
 # Compile o projeto
 RUN mvn clean install
@@ -23,7 +17,7 @@ WORKDIR /app
 EXPOSE 8080
 
 # Copie apenas os artefatos necessários do estágio de compilação
-COPY --from=build /app/inspecionamento/target/user-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/user-0.0.1-SNAPSHOT.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
 

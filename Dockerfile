@@ -1,20 +1,17 @@
-FROM ubuntu:latest AS build
+# Estágio de compilação
+FROM maven:3.8.4-openjdk-17 AS build
 
-RUN apt-get update
-RUN apt-get install openjdk-17-jdk -y
+WORKDIR /app
 COPY . .
 
-RUN apt-get update && \
-    apt-get install -y maven
-RUN mvn clean install 
+RUN mvn clean install
 
 FROM openjdk:17-jdk-slim
-FROM maven:3-jdk-11 as builder
-FROM openjdk:11-slim as runtime
+
+WORKDIR /app
 
 EXPOSE 8080
 
 COPY --from=build /app/inspecionamento/target/user-0.0.1-SNAPSHOT.jar app.jar
 
-ENTRYPOINT [ "java", "-jar", "app.jar" ]
-
+ENTRYPOINT ["java", "-jar", "app.jar"]

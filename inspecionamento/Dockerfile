@@ -9,9 +9,6 @@ COPY inspecionamento/pom.xml .
 # Baixe as dependências antes de copiar todo o código-fonte
 RUN mvn dependency:go-offline
 
-# Copie todo o código-fonte
-COPY inspecionamento/src ./src
-
 # Compile o projeto
 RUN mvn clean install
 

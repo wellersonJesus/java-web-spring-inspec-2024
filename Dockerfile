@@ -5,7 +5,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN mvn clean install
+RUN apt-get install maven -y
+RUN mvn clean install 
 
 FROM openjdk:17-jdk-slim
 

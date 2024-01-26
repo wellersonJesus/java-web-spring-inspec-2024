@@ -57,6 +57,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.seupacote.suaclasse.MainApplicationClass</mainClass>
+				</configuration>
 			</plugin>
 
 			<plugin>
@@ -67,3 +70,4 @@
 		</plugins>
 	</build>
 </project>
+

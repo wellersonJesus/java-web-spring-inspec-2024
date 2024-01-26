@@ -1,7 +1,11 @@
-# Estágio de compilação Prod.
+# Estágio de compilação
 FROM maven:3.8.4-openjdk-17 AS build
 
 WORKDIR /app
+
+# Adicione comandos de debug
+RUN ls -l    # Verifique o conteúdo do diretório atual
+RUN pwd      # Exiba o diretório de trabalho atual
 
 # Copie apenas o arquivo POM inicial para aproveitar o cache ao baixar as dependências
 COPY pom.xml .

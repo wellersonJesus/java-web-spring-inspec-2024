@@ -14,7 +14,7 @@ COPY pom.xml .
 RUN mvn dependency:go-offline
 
 # Copie todo o código-fonte
-COPY src ./src
+COPY java-web-spring-inspec-2024 /app
 
 # Compile o projeto
 RUN mvn clean install

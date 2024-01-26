@@ -1,4 +1,4 @@
-# Estágio de compilação
+# Estágio de compilação Prod.
 FROM maven:3.8.4-openjdk-17 AS build
 
 WORKDIR /app

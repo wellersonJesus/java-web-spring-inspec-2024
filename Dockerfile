@@ -8,6 +8,8 @@ RUN apt-get install maven -y
 RUN mvn clean install 
 
 FROM openjdk:17-jdk-slim
+FROM maven:3-jdk-11 as builder
+FROM openjdk:11-slim as runtime
 
 EXPOSE 8080
 

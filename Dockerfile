@@ -5,7 +5,7 @@ WORKDIR /app
 COPY pom.xml .
 COPY src src
 
-RUN mvn clean install -Dmaven.repo.local=/path/to/local/repository
+RUN mvn clean install
 
 FROM openjdk:17-jdk-slim
 

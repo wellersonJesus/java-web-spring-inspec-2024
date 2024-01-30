@@ -13,7 +13,6 @@
 	<groupId>com.infowell-dast</groupId>
 	<artifactId>inspect</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
 	<name>inspect</name>
 	<description>Project for Spring Boot inspect</description>
 	<properties>

@@ -4,7 +4,7 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
     <version>2.7.18</version>
-    <relativePath>pom.xml</relativePath>
+    <relativePath>../pom.xml/pom.xml</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.infowell-dast</groupId>
@@ -16,7 +16,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>3.2.4</version>
+        <version>${maven-shade-plugin.version}</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -30,11 +30,6 @@
                   <resource>META-INF/spring.schemas</resource>
                   <resource>META-INF/spring.tooling</resource>
                 </transformer>
-                <transformer>
-                  <resource>META-INF/spring.handlers</resource>
-                  <resource>META-INF/spring.schemas</resource>
-                  <resource>META-INF/spring.tooling</resource>
-                </transformer>
               </transformers>
               <finalName>${project.artifactId}-${project.version}</finalName>
             </configuration>
@@ -43,17 +38,21 @@
       </plugin>
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>${maven-resources-plugin.version}</version>
         <configuration>
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
-        <version>3.2.0</version>
+        <version>${maven-clean-plugin.version}</version>
         <configuration>
           <failOnError>false</failOnError>
         </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin.version}</version>
       </plugin>
     </plugins>
   </build>
@@ -148,6 +147,12 @@
     </dependency>
   </dependencies>
   <properties>
+    <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     <java.version>17</java.version>
+    <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
+    <mariadb-java-client.version>1.1.7</mariadb-java-client.version>
+    <mysql-connector-java.version>8.0.23</mysql-connector-java.version>
+    <maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
+    <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
   </properties>
 </project>

@@ -42,4 +42,3 @@ EXPOSE 8081
 # ENTRYPOINT ["/usr/app/docker-entrypoint.sh"]
 
 CMD ["java", "-jar", "app.jar"]
-

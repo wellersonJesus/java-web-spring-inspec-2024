@@ -27,7 +27,7 @@ RUN git clone https://github.com/wellersonJesus/java-web-spring-inspec-2024.git 
 
 RUN cp -r /usr/tmp/* /usr/app/ && rm -rf /usr/tmp
 
-RUN mvn -f /usr/app clean package -DskipTests -Dmaven.compiler.source=1.8 -Dmaven.compiler.target=1.8
+RUN mvn -f /usr/app clean package -Dmaven.compiler.source=1.8 -Dmaven.compiler.target=1.8
 
 # Estágio 2: Execução
 FROM openjdk:8-jdk-alpine
